@@ -94,6 +94,14 @@ To solve this, the design will follow these steps:
   * Verify relationships using Flask shell.
   * Run unit tests to validate model relationships, association proxies, and serialization outputs.
 
+## Implemented serialization
+
+`Customer.items` provides the items associated through customer reviews.
+`CustomerSchema`, `ItemSchema`, and `ReviewSchema` serialize model fields and
+related records while excluding reciprocal relationships from nested schemas
+to prevent circular output. Apply the database migration and run `python
+seed.py` from `server/` to create and populate the sample database.
+
 Following this structure will ensure your data models are complete, your 
 serialization is correct, and your application is robust against recursion errors.
 
